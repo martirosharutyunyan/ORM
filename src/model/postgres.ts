@@ -162,12 +162,17 @@ class ORM {
 
 }
 
-// export const physicalPersons = new ORM('physicalPersons', {
-//     name:ORM.STRING,
-//     surname:ORM.STRING,
-    
-// }, {force:false, logging:true})
-
-export const legalPersons = new ORM('legalPersons', {
-    column1:ORM.STRING
+export const Table = new ORM('Table', {
+    column1:ORM.STRING,
+    column2:ORM.INTEGER,
 }, {force:true, logging:false})
+
+Table.findAll({where:{column1:"ok"}})
+Table.findAll({where:"column2 < 10"})
+Table.findOne({where:{column1:"ok"}})
+Table.findOne({where:"id == 2"})
+Table.insert({column1:"insert test", column2:321})
+Table.update({column1:"update test", column2:10}, {where:"id = 2"})
+Table.update({column1:"update test", column2:10}, {where:{column2:10}})
+Table.delete({where:{column2:10}})
+Table.delete({where:'column2 = 10'})
