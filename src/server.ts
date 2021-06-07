@@ -17,7 +17,6 @@ app.use(express.urlencoded({
 }))
 
 
-app.use('/api', require('./router/controller'))
 
 app.listen(port, () => console.log(`server is runnig on port http://localhost:${port}`));
 
