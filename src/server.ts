@@ -3,11 +3,11 @@ dotenv.config();
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors'
-import { client } from './model/postgres';
+// import { client } from './model/ORMForDevelopment';
 const app = express();
 const port:string | number = process.env.PORT ?? 8888;
 
-client.connect().then(res => console.log('Connected to DB')).catch(err => console.log(err))
+// client.connect().then(res => console.log('Connected to DB')).catch(err => console.log(err))
 
 app.use(cors())
 app.use(morgan(`dev`));

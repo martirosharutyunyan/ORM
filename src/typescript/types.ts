@@ -6,8 +6,8 @@ export interface params {
     force?:boolean
     logging?:boolean
 }
-export interface conditionType {
-    where:any
+export interface conditionType<T> {
+    where:T | string
 }
 export interface contructorType {
     TABLENAME:string
