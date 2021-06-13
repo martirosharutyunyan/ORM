@@ -1,13 +1,13 @@
 require('dotenv').config();
-import { Client } from 'pg';
 import ORM from './ORM';
 
-const client2 = new ORM({
-    database:process.env.postgresDBname,
-    password:process.env.postgresDBpassword,
+const client = new ORM({
+    database:'bikesdb',
+    password:'hhs13516',
     port:5432,
     host:'localhost',
     user:'postgres',
+    logging:true,
 })
 
 interface user {
@@ -16,5 +16,14 @@ interface user {
     age?:number
 }
 
-const table = client2.define<user>('table2',{name:ORM.STRING, surname:ORM.STRING, age:ORM.INTEGER},{logging:true})
-table.findAll().then(console.table)
+// const table = client.define<user>('table2', {name:ORM.STRING, surname:ORM.STRING, age:ORM.INTEGER}, {force:true})
+// table.insert({age:12, surname:'Harutyunyan', name:"Martiros"})
+// table.update({age:18}, {where:"name = 'Martiros'"})
+// table.update({age:18}, {where: {name:"Martiros"}})
+// table.findAll().then(console.table)
+
+
+
+
+
+
