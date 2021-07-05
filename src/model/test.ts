@@ -16,11 +16,11 @@ interface user {
     age?:number
 }
 
-// const table = client.define<user>('table2', {name:ORM.STRING, surname:ORM.STRING, age:ORM.INTEGER}, {force:true})
+const table = client.define<user>('table2', {name:ORM.STRING, surname:ORM.STRING, age:ORM.INTEGER}, {force:true})
 // table.insert({age:12, surname:'Harutyunyan', name:"Martiros"})
 // table.update({age:18}, {where:"name = 'Martiros'"})
-// table.update({age:18}, {where: {name:"Martiros"}})
-// table.findAll().then(console.table)
+// table.update({age:18, name:'Martiros'}, {where: {name:"Martiros", age:190}})
+// table.findAll({ where: { name:"ok", age:128 } }).then(console.table)
 
 
 
