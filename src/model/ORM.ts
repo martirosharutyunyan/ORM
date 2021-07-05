@@ -100,7 +100,7 @@ class Table<T> {
             const values = arr.map(([column, value]) => `${value}`).join(', ')
             const SQLQuery = `INSERT INTO ${this.TABLENAME} (${columns}) VALUES (${values});`
             this.logging ? console.log(SQLQuery) : null
-            // await this.client.query(SQLQuery)
+            await this.client.query(SQLQuery)
         } catch(err) {
             this.logging ? console.error(err) : null
             return err
