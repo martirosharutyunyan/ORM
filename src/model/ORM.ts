@@ -1,14 +1,7 @@
-import { Client } from "pg"
-import { createConnection } from 'mysql'
+import { Pool } from "pg"
 
 
 
-export const conn = createConnection({
-    host:'localhost',
-    user:process.env.mysqlUser,
-    database:process.env.mysqlDB,
-    password:process.env.mysqlPassword
-})
 
 interface DBparams {
     database:string,
@@ -30,7 +23,7 @@ interface params {
 
 class Table<T> {
     constructor(
-        public client:Client,
+        public client:Pool,
         public TABLENAME:string,
         public columns:T,
         public params = { force:false }, 
@@ -156,7 +149,7 @@ class ORM  {
     constructor(
         private params:DBparams,
     ){
-        this.client = new Client(this.params) 
+        this.client = new Pool(this.params) 
         this.client.connect().catch(console.error)
     };    
     define<T>(TABLENAME: string, args: T, params?: params) {
